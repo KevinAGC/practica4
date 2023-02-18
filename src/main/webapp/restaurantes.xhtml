@@ -28,59 +28,75 @@
 
 			<f:facet name="{Exporters}">
 				<div class="flex justify-content-between">
-					<p:commandButton value="XLS" styleClass="mr-2 mb-2">
-						<p:dataExporter type="xls" target="tblRestaurantes"
-							fileName="ReporteRestaurantes" />
-					</p:commandButton>
 
-					<p:commandButton value="XLSX" styleClass="mr-2 mb-2">
+					<p:commandLink value="" styleClass="mr-2 mb-2">
+						<p:graphicImage value="resources/imgs/xls.png" width="5%" />
+						<p:dataExporter type="XLS" target="tblRestaurantes"
+							fileName="ReporteRestaurantes" />
+					</p:commandLink>
+
+					<p:commandLink value="" styleClass="mr-2 mb-2">
+						<p:graphicImage value="resources/imgs/xlsx.png" width="5%" />
 						<p:dataExporter type="xlsxstream" target="tblRestaurantes"
 							fileName="ReporteRestaurantes" />
-					</p:commandButton>
 
-					<p:commandButton value="PDF" styleClass="mr-2 mb-2">
-						<p:dataExporter type="pdf" target="tblRestaurantes"
+
+					</p:commandLink>
+
+					<p:commandLink value="" styleClass="mr-2 mb-2">
+						<p:graphicImage value="resources/imgs/pdf.png" width="5%" />
+						<p:dataExporter type="PDF" target="tblRestaurantes"
 							fileName="ReporteRestaurantes" />
-					</p:commandButton>
+					</p:commandLink>
 
-					<p:commandButton value="CSV" styleClass="mr-2 mb-2">
-						<p:dataExporter type="csv" target="tblRestaurantes"
-							fileName="ReporteRestaurantes" />
-					</p:commandButton>
-
-					<p:commandButton value="XML" styleClass="mr-2 mb-2">
+					<p:commandLink value="" styleClass="mr-2 mb-2">
+						<p:graphicImage value="resources/imgs/csv.png" width="5%" />
 						<p:dataExporter type="xml" target="tblRestaurantes"
 							fileName="ReporteRestaurantes" />
-					</p:commandButton>
+					</p:commandLink>
 
-					<p:commandButton value="TXT" styleClass="mr-2 mb-2">
+					<p:commandLink value="" styleClass="mr-2 mb-2">
+						<p:graphicImage value="resources/imgs/xml.png" width="5%" />
+						<p:dataExporter type="xml" target="tblRestaurantes"
+							fileName="ReporteRestaurantes" />
+					</p:commandLink>
+
+					<p:commandLink value="" styleClass="mr-2 mb-2">
+						<p:graphicImage value="resources/imgs/txt.png" width="5%" />
 						<p:dataExporter type="txt" target="tblRestaurantes"
 							fileName="ReporteRestaurantes"
 							exporter="#{dataExporterView.textExporter}" />
-					</p:commandButton>
+					</p:commandLink>
 				</div>
 			</f:facet>
 
-			<p:column>
+			<p:column filterBy="#{restaurante.nombre}"
+				sortBy="#{restaurante.nombre}" filterMatchMode="contains">
 				<f:facet name="header">
 			Nombre
 			</f:facet>
 				<h:outputText value="#{restaurante.nombre}"></h:outputText>
 
 			</p:column>
-			<p:column>
+
+			<p:column filterBy="#{restaurante.direccion}"
+				sortBy="#{restaurante.direccion}" filterMatchMode="contains">
 				<f:facet name="header">
 			Dirección
 			</f:facet>
 				<h:outputText value="#{restaurante.direccion}"></h:outputText>
 			</p:column>
-			<p:column>
+			<p:column filterBy="#{restaurante.pais}" sortBy="#{restaurante.pais}"
+				filterMatchMode="contains">
 				<f:facet name="header">
 			País
 			</f:facet>
 				<h:outputText value="#{restaurante.pais}"></h:outputText>
 			</p:column>
-			<p:column>
+			<p:column
+				filterBy="#{restaurante.gerente.nombre} #{restaurante.gerente.primerApellido} #{restaurante.gerente.segundoApellido}"
+				sortBy="#{restaurante.gerente.nombre} #{restaurante.gerente.primerApellido} #{restaurante.gerente.segundoApellido}"
+				filterMatchMode="contains">
 				<f:facet name="header">
 							Gerente
 							</f:facet>

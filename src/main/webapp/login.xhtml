@@ -10,7 +10,8 @@
 <h:body>
 	<title>Pantalla de login</title>
 	<div class="ui-fluid">
-		<p:panel id="pnLLogin" header="Inicio de sesion" style="text-align:center">
+		<p:panel id="pnLLogin" header="Inicio de sesion"
+			style="text-align:center">
 			<h:form id="formLogin">
 
 				<p:growl id="growl" />
@@ -19,7 +20,7 @@
 					columnClasses="ui-g-12 ui-md-2,ui-g-12 ui-md-12" layout="grid"
 					styleClass="ui-panelgrid-blank ui-fluid">
 
-					 <p:graphicImage name="imgs/usuario.png" width="15%"/>
+					<p:graphicImage name="imgs/usuario.png" width="15%" />
 					<p:outputLabel value="Usuario: " styleClass="colorText"
 						for="txtUsuario" style="float: left"></p:outputLabel>
 					<p:inputText id="txtUsuario" value="#{loginController.usuario}"
